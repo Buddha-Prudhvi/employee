@@ -1,0 +1,17 @@
+mat-card{
+    margin:20px;
+    width:25%;
+    height: auto;
+    border: 1px solid blue;
+    text-align:center;
+    background-color: cornsilk;   
+}
+table{
+    width:65%;
+    border:1px solid black;
+    margin:10px;
+
+}
+div{
+    display:flex
+}

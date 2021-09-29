@@ -1,0 +1,55 @@
+<div>
+<mat-card>
+    <form [formGroup]="employeeform">
+        <p>
+            <mat-form-field appearence = "standard">
+            <mat-label>employee name</mat-label>
+            <input placeholder="name" matInput formControlName="name">
+            </mat-form-field>
+            
+        </p>
+        <p>
+            <mat-form-field appearence = "standard">
+            <mat-label>employee Position</mat-label>
+            <input placeholder="position" matInput formControlName="position">
+            
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearence = "standard">
+            <mat-label>employee office</mat-label>
+            <input placeholder="office" matInput formControlName="office">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearence = "standard">
+            <mat-label>employee Salary</mat-label>
+            <input placeholder="salary" matInput formControlName="salary">
+            </mat-form-field>
+        </p>
+        <button mat-raised-button color="primary" (click)="add()">Add</button>
+    </form>
+</mat-card>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Salary</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+    </thead>
+    <th>
+        <td>Alfreds Futterkiste</td>
+        <td>Maria Anders</td>
+        <td>Germany</td>
+        <td>hgj</td>
+        <td> <a href=""><mat-icon>edit</mat-icon></a> </td>
+        <td> <a href=""><mat-icon>delete</mat-icon></a> </td>
+    
+</table>
+</div>
