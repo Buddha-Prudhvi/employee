@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
 
 const routes: Routes = [{path:'',redirectTo:'home',pathMatch:'full'},{path:'home',component:HomeComponent},
-{path:'form',component:EmployeeComponent},{path:'record',component:PostComponent}];
+{path:'form',component:EmployeeComponent},{path:'form/:name',component:EmployeeComponent},{path:'record',component:PostComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

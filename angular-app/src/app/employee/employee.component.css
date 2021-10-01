@@ -10,8 +10,10 @@ table{
     width:65%;
     border:1px solid black;
     margin:10px;
-
 }
 div{
     display:flex
+}
+button{
+    margin:20px;
 }

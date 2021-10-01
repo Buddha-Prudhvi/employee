@@ -1,6 +1,18 @@
-<div *ngFor ="let data of x">
-    {{data.name}}
-    {{data.position}}
-    {{data.office}}
-    {{data.salary}}
-</div>
+<table class="table">
+    <thead >
+      <tr>
+        <th scope="col">name</th>
+        <th scope="col">position</th>
+        <th scope="col">office</th>
+        <th scope="col">salary</th>
+      </tr>
+    </thead>
+    <tbody  *ngFor = "let d of x">
+      <tr>
+        <td>{{d.name}}</td>
+        <td>{{d.position}}</td>
+        <td>{{d.office}}</td>
+        <td>{{d.salary}}</td>
+      </tr>
+    </tbody>
+  </table>

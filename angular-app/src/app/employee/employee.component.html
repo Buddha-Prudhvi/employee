@@ -1,55 +1,69 @@
-<div>
+<div >
 <mat-card>
-    <form [formGroup]="employeeform">
+    <form [formGroup]="employeeform" (ngSubmit)="submit()">
         <p>
             <mat-form-field appearence = "standard">
             <mat-label>employee name</mat-label>
-            <input placeholder="name" matInput formControlName="name">
+            <input placeholder="name" matInput formControlName="name" [(ngModel)]="name">
+            <mat-error *ngIf = "n.invalid">req name</mat-error>
+            <mat-error *ngIf = "n.requiredLength">req 4 char</mat-error>
             </mat-form-field>
-            
-        </p>
+          </p>
         <p>
             <mat-form-field appearence = "standard">
             <mat-label>employee Position</mat-label>
-            <input placeholder="position" matInput formControlName="position">
-            
+            <input placeholder="position" matInput formControlName="position" [(ngModel)]="position">
+            <mat-error *ngIf = "p.invalid">req position</mat-error>
             </mat-form-field>
         </p>
         <p>
             <mat-form-field appearence = "standard">
             <mat-label>employee office</mat-label>
-            <input placeholder="office" matInput formControlName="office">
+            <input placeholder="office" matInput formControlName="office" [(ngModel)]="office">
+            <mat-error *ngIf = "o.invalid">required</mat-error>
             </mat-form-field>
         </p>
         <p>
             <mat-form-field appearence = "standard">
             <mat-label>employee Salary</mat-label>
-            <input placeholder="salary" matInput formControlName="salary">
+            <input placeholder="salary" matInput formControlName="salary" [(ngModel)]="salary">
+            <mat-error *ngIf = "s.invalid">required</mat-error>
             </mat-form-field>
         </p>
-        <button mat-raised-button color="primary" (click)="add()">Add</button>
+        <button mat-raised-button color="primary" (click)="add()" type="submit">Add</button>
+        <button mat-raised-button color="primary" (click)="reset()">reset</button>
     </form>
 </mat-card>
 
 
-<table>
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Office</th>
-        <th>Salary</th>
-        <th>edit</th>
-        <th>delete</th>
-    </tr>
+<table class="table" >
+    <thead >
+      <tr>
+        <th scope="col">name</th>
+        <th scope="col">position</th>
+        <th scope="col">office</th>
+        <th scope="col">salary</th>
+        <th scope="col">edit</th>
+        <th scope="col">delete</th>
+      </tr>
     </thead>
-    <th>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
-        <td>hgj</td>
-        <td> <a href=""><mat-icon>edit</mat-icon></a> </td>
-        <td> <a href=""><mat-icon>delete</mat-icon></a> </td>
-    
-</table>
-</div>
+    <tbody  *ngFor = "let d of users">
+      <tr>
+        <td>{{d.name}}</td>
+        <td>{{d.position}}</td>
+        <td>{{d.office}}</td>
+        <td>{{d.salary}}</td>
+        <td><a [routerLink] = "['/form',d._id]" (click)="edit()" ><mat-icon>edit</mat-icon></a></td>
+        <td><a [routerLink] = "['/form',d._id]"><mat-icon>delete</mat-icon></a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngFor = " let x of data" >
+    <div>
+      {{x.name}}
+      {{x.position}}
+      {{x.office}}
+      {{x.salary}}
+    </div>
+  </div>
