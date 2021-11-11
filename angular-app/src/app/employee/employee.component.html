@@ -1,43 +1,43 @@
-<div >
-<mat-card>
+<div>
+  <mat-card>
     <form [formGroup]="employeeform" (ngSubmit)="submit()">
-        <p>
-            <mat-form-field appearence = "standard">
-            <mat-label>employee name</mat-label>
-            <input placeholder="name" matInput formControlName="name" [(ngModel)]="name">
-            <mat-error *ngIf = "n.invalid">req name</mat-error>
-            <mat-error *ngIf = "n.requiredLength">req 4 char</mat-error>
-            </mat-form-field>
-          </p>
-        <p>
-            <mat-form-field appearence = "standard">
-            <mat-label>employee Position</mat-label>
-            <input placeholder="position" matInput formControlName="position" [(ngModel)]="position">
-            <mat-error *ngIf = "p.invalid">req position</mat-error>
-            </mat-form-field>
-        </p>
-        <p>
-            <mat-form-field appearence = "standard">
-            <mat-label>employee office</mat-label>
-            <input placeholder="office" matInput formControlName="office" [(ngModel)]="office">
-            <mat-error *ngIf = "o.invalid">required</mat-error>
-            </mat-form-field>
-        </p>
-        <p>
-            <mat-form-field appearence = "standard">
-            <mat-label>employee Salary</mat-label>
-            <input placeholder="salary" matInput formControlName="salary" [(ngModel)]="salary">
-            <mat-error *ngIf = "s.invalid">required</mat-error>
-            </mat-form-field>
-        </p>
-        <button mat-raised-button color="primary" (click)="add()" type="submit">Add</button>
-        <button mat-raised-button color="primary" (click)="reset()">reset</button>
+      <p>
+        <mat-form-field appearence="standard">
+          <mat-label>employee name</mat-label>
+          <input placeholder="name" matInput formControlName="name">
+          <mat-error *ngIf="n.invalid">req name</mat-error>
+          <mat-error *ngIf="n.requiredLength">req 4 char</mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearence="standard">
+          <mat-label>employee Position</mat-label>
+          <input placeholder="position" matInput formControlName="position">
+          <mat-error *ngIf="p.invalid">req position</mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearence="standard">
+          <mat-label>employee office</mat-label>
+          <input placeholder="office" matInput formControlName="office">
+          <mat-error *ngIf="o.invalid">required</mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearence="standard">
+          <mat-label>employee Salary</mat-label>
+          <input placeholder="salary" matInput formControlName="salary">
+          <mat-error *ngIf="s.invalid">required</mat-error>
+        </mat-form-field>
+      </p>
+      <button mat-raised-button color="primary" (click)="add()" type="submit">Add</button>
+      <button mat-raised-button color="primary" (click)="reset()">reset</button>
     </form>
-</mat-card>
+  </mat-card>
 
 
-<table class="table" >
-    <thead >
+  <table class="table">
+    <thead>
       <tr>
         <th scope="col">name</th>
         <th scope="col">position</th>
@@ -47,23 +47,20 @@
         <th scope="col">delete</th>
       </tr>
     </thead>
-    <tbody  *ngFor = "let d of users">
+    <tbody *ngFor="let d of users">
       <tr>
         <td>{{d.name}}</td>
         <td>{{d.position}}</td>
         <td>{{d.office}}</td>
         <td>{{d.salary}}</td>
-        <td><a [routerLink] = "['/form',d._id]" (click)="edit()" ><mat-icon>edit</mat-icon></a></td>
-        <td><a [routerLink] = "['/form',d._id]"><mat-icon>delete</mat-icon></a></td>
+        <td (click)="edit(d._id)"><a [routerLink]="">
+            <mat-icon>edit</mat-icon>
+          </a></td>
+        <td><a [routerLink]="">
+            <mat-icon>delete</mat-icon>
+          </a></td>
       </tr>
     </tbody>
   </table>
+</div>
 
-  <div *ngFor = " let x of data" >
-    <div>
-      {{x.name}}
-      {{x.position}}
-      {{x.office}}
-      {{x.salary}}
-    </div>
-  </div>

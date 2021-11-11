@@ -1,6 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ThisReceiver } from '@angular/compiler';
-import { convertUpdateArguments } from '@angular/compiler/src/compiler_util/expression_converter';
+import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 
 
@@ -9,23 +8,23 @@ import { Injectable } from '@angular/core';
 })
 export class EmpSerService {
 url = "http://localhost:3000"
+url_id = "http://localhost:3000/:id"
   constructor(private http:HttpClient) { }
 
   getAllusers(){
-  return this.http.get("http://localhost:3000");
-}
+  return this.http.get(this.url+"/getall");
+  }
+  getUsersById(id:any){
+    return this.http.get(this.url+"/findBy/"+id);
+    }
 
   insert(user:any){
-    const headers = new HttpHeaders({"content-type":"application/json"})
-    const body = JSON.stringify(user)
-    console.log(body)
-    return this.http.post(this.url,user,{headers:headers})
+    return this.http.post(this.url,user)
   }
   
   update(id:number){
     return this.http.put(this.url,id);
   }
 
- 
 }
 
