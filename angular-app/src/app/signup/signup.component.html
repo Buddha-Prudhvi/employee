@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="container1">
+        
+        <mat-card>
+            <div>
+                <h1>Sign UP</h1>
+            </div>
+            <form [formGroup]="signupform" (ngSubmit)="submit()">
+            <p>
+                <mat-form-field>
+                    <mat-label>username</mat-label>
+                    <input matInput formControlName= "username" type="text">
+                    <mat-error *ngIf = "u.invalid">req username</mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>email</mat-label>
+                    <input matInput formControlName= "email" type="email">
+                    <mat-error *ngIf = "e.invalid">req email</mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>password</mat-label>
+                    <input matInput formControlName = "password"  type="password">
+                    <mat-error *ngIf = "p.invalid">req password</mat-error>
+                </mat-form-field>
+            </p>
+            <button mat-raised-button color="primary" type="submit" (click)="signup()">Signup</button><br><br>
+            <a href="">login</a> &nbsp;&nbsp;<a href="">forgot password</a>
+        </form>
+        </mat-card>
+    
+    </div>
+</div>

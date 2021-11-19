@@ -4,5 +4,7 @@
         <li><a routerLink="form">Forms</a></li>
         <li><a routerLink="record">Employee records</a></li>
     </ul>
-
+    <span style="flex:1 1 auto;"></span>
+        <a *ngIf = "loggedin"><button mat-raised-button color = "primary" (click)="login()" >Login</button></a>
+        <a *ngIf = "loggedout"><button mat-raised-button color = "primary" (click)="logout()" >Log out</button></a>
 </mat-toolbar>

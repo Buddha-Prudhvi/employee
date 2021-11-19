@@ -12,6 +12,9 @@ import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateComponent } from './update/update.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { UpdateComponent } from './update/update.component';
     EmployeeComponent,
     NavbarComponent,
     PostComponent,
-    UpdateComponent
+    UpdateComponent,
+    LoginComponent,
+    SignupComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,

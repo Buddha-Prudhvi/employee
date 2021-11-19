@@ -7,24 +7,30 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class EmpSerService {
-url = "http://localhost:3000"
-url_id = "http://localhost:3000/:id"
-  constructor(private http:HttpClient) { }
+  url = "http://localhost:3000"
+  url_id = "http://localhost:3000/:id"
+  sign = "http://localhost:3000/register"
 
-  getAllusers(){
-  return this.http.get(this.url+"/getall");
+  constructor(private http: HttpClient) { }
+  signup(user: any) {
+    return this.http.post(this.sign, user)
   }
-  getUsersById(id:any){
-    return this.http.get(this.url+"/findBy/"+id);
-    }
+  getAllusers() {
+    return this.http.get(this.url + "/getall");
+  }
+  getUsersById(id: any) {
+    return this.http.get(this.url + "/findBy/" + id);
+  }
 
-  insert(user:any){
-    return this.http.post(this.url,user)
+  insert(user: any) {
+    return this.http.post(this.url, user)
   }
-  
-  update(id:number){
-    return this.http.put(this.url,id);
+
+  update(id: number) {
+    return this.http.put(this.url, id);
   }
+
+
 
 }
 

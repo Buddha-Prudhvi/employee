@@ -26,7 +26,6 @@ router.get('/findBy/:id',async(req,res,next)=>{
 router.get('/getall',async(req,res,next)=>{
     try{
         const result = await employe.find()
-        console.log(result);
         res.status(200).json({result:result,success:true})
     }catch(e){
         console.log(e)

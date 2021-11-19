@@ -8,7 +8,7 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var Routers = require('./routes/router');
-
+var registerrouter = require('./routes/router1')
 var app = express();
 
 // view engine setup
@@ -25,6 +25,7 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(Routers);
+app.use(registerrouter);
 
 // app.use(cors({
 //   origin: true, // "true" will copy the domain of the request back
