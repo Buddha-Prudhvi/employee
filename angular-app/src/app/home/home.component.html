@@ -1,7 +1,54 @@
-<div >
+<!-- <div fxLayout="column">
+<mat-toolbar >
+    <ul>
+        <li><a routerLink="home">Home</a></li>
+        <li><a routerLink="form">Forms</a></li>
+        <li><a routerLink="record">Employee records</a></li>
+    </ul>
+    <span style="flex:1 1 auto;"></span> -->
+        <!-- <a *ngIf = "loggedin"><button mat-raised-button color = "primary" (click)="login()" >Login</button></a>
+        <a *ngIf = "loggedout"><button mat-raised-button color = "primary" (click)="logout()" >Log out</button></a> -->
+<!-- </mat-toolbar> -->
+
+<!-- <div >
     <h1>
         Welcome to employees portal
     </h1>
     <router-outlet></router-outlet>
 </div>
+</div> -->
 
+<div fxLayout="column wrap" fxLayoutAlign = "start stretch" >
+
+<div fxLayout="row" >
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="home()">
+            Home
+          </button>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="forms()">
+          Forms
+          </button>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="records()">
+            Records
+          </button>
+        <span style="flex:1 1 auto;"></span>
+        <div>
+        <button *ngIf = "logindata" mat-icon-button class="example-icon1" aria-label="Example icon-button with menu icon" (click)="login()">
+           login
+          </button>
+          <button *ngIf = "logoutdata" mat-icon-button class="example-icon1" aria-label="Example icon-button with menu icon" (click)="logout()">
+            logout
+           </button>
+        </div>
+    </mat-toolbar>
+</div>
+<!-- <div *ngIf="showWelcome" fxLayout="row wrap" fxLayoutAlign = "center center">
+    <mat-card style="margin-top: 100px;width: 600px;height: 200px; text-align: center; border: 3px solid #3f51b5;">
+        <h1 style="margin-top: 50px;">Welcome to Employee's Portol</h1>
+    </mat-card> 
+</div> -->
+
+<div  fxLayout="row wrap" fxLayoutAlign = "center center" > 
+    <router-outlet></router-outlet>
+</div>
+</div>

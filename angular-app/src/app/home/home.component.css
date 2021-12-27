@@ -1,7 +1,39 @@
-div{
+/* div{
     text-align: center;
     padding:240px;
 }
 h1{
     font-size: 50px;;
+}
+li{
+    list-style: none;
+    margin-left: 10px;
+}
+li a{
+    color:white;
+    text-decoration: none;
+}
+li a:hover{
+    text-decoration: underline;
+    font-size:larger;
+}
+ul{
+    display: flex;
+}
+mat-toolbar{
+    background-color: Blue;
+} */
+
+
+.example-icon{
+    margin:10px;
+}
+
+.example-icon:hover{
+    text-decoration: underline;
+    padding: 2px;
+}
+.example-icon1:hover{
+    text-decoration: underline;
+    padding: 2px;
 }

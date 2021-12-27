@@ -1,5 +1,5 @@
 <div>
-  <mat-card>
+  <mat-card >
     <form [formGroup]="employeeform" (ngSubmit)="submit()">
       <p>
         <mat-form-field appearence="standard">
@@ -30,37 +30,56 @@
           <mat-error *ngIf="s.invalid">required</mat-error>
         </mat-form-field>
       </p>
-      <button mat-raised-button color="primary" (click)="add()" type="submit">Add</button>
-      <button mat-raised-button color="primary" (click)="reset()">reset</button>
+      <button mat-raised-button color="primary" (click)="add()" type="submit" class="button1">Add</button>
+      <button mat-raised-button color="primary" (click)="reset()" class="button1">reset</button>
     </form>
   </mat-card>
-
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">name</th>
-        <th scope="col">position</th>
-        <th scope="col">office</th>
-        <th scope="col">salary</th>
-        <th scope="col">edit</th>
-        <th scope="col">delete</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let d of users">
-      <tr>
-        <td>{{d.name}}</td>
-        <td>{{d.position}}</td>
-        <td>{{d.office}}</td>
-        <td>{{d.salary}}</td>
-        <td (click)="edit(d._id)"><a [routerLink]="">
-            <mat-icon>edit</mat-icon>
-          </a></td>
-        <td><a [routerLink]="">
-            <mat-icon>delete</mat-icon>
-          </a></td>
-      </tr>
-    </tbody>
-  </table>
+ <mat-card class="mat2">
+   <mat-card-content>
+    <div class="example-container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef > Name. </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> Position </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="office">
+          <th mat-header-cell *matHeaderCellDef> Office </th>
+          <td mat-cell *matCellDef="let element"> {{element.office}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="salary">
+          <th mat-header-cell *matHeaderCellDef> Salary </th>
+          <td mat-cell *matCellDef="let element"> {{element.salary}} </td>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef> Edit </th>
+          <td mat-cell *matCellDef="let element"> <button mat-button (click)="edit( element._id)"><mat-icon>edit</mat-icon></button> </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let element"> <button mat-button (click)="delete(element._id)"><mat-icon>delete</mat-icon></button></td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+    </div>
+   </mat-card-content>
+ </mat-card>
 </div>
 

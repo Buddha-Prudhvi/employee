@@ -47,14 +47,15 @@ router.put('updateBy/:id',async(req,res,next)=>{
     }
 })
 
-router.delete('deleteBy/:id',async(req,res,next)=>{
+
+router.delete('/deleteBy/:id',async(req,res)=>{
     try{
-        const result = await employe.findByIdAndDelete(req.params.id)
-        res.status(200).json({result:result,success:true})
-    }catch(e){
-        console.log(e)
-        res.status(400).json({success:false})
+        await employe.findByIdAndDelete(req.params.id)
+        res.status(200).json({"success":true})
+    }
+    catch(err){
+        console.log(err)
+        res.status(400).json({"success":false})
     }
 })
-
 module.exports = router;

@@ -1,31 +1,26 @@
-<div class="container">
-    <div class="container1">
-        <mat-card>
-            <div>
-                <h1>LOGIN</h1>
-            </div>
-            <form [formGroup]="loginform" (ngSubmit)="submit()">
-                <p>
-                    <mat-form-field>
-                        <mat-label>username/email</mat-label>
-                        <input matInput formControlName= "user" type="text">
-                        <mat-error *ngIf = "u.invalid">req username</mat-error>
-                    </mat-form-field>
-                </p>
-         
-            <p>
-                <mat-form-field>
-                    <mat-label>password</mat-label>
-                    <input matInput formControlName = "password" type="password">
-                    <mat-error *ngIf = "p.invalid">req password</mat-error>
-                </mat-form-field>
-            </p>
-            <button mat-raised-button color="primary" type="submit" (click)="submit()">login</button><br><br>
-            <a routerLink="/home/signup">signup</a> &nbsp;&nbsp; <a routerLink = "/home/forgotpassword">forgot password</a>
-        </form>
-        </mat-card>
+<div style="margin-top: 150px;">
+<mat-card style="width: 400px;text-align: center;border: 3px solid #3f51b5;">
+    <div> 
+        <h1>LOGIN</h1>
     </div>
+    <form [formGroup]="loginform" (ngSubmit)="submit()">
+        <p>
+            <mat-form-field>
+                <mat-label>username/email</mat-label>
+                <input matInput formControlName="user" type="text">
+                <mat-error *ngIf="u.invalid">req username</mat-error>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field>
+                <mat-label>password</mat-label>
+                <input matInput formControlName="password" type="password">
+                <mat-error *ngIf="p.invalid">req password</mat-error>
+            </mat-form-field>
+        </p>
+        <button mat-raised-button color="primary" type="submit" (click)="submit()">login</button><br><br>
+        <a routerLink="/home/signup">signup</a> &nbsp;&nbsp; <a routerLink="/home/forgotpassword">forgot password</a>
+    </form>
+</mat-card>
 </div>
-
-
-

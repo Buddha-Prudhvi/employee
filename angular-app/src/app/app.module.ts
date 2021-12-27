@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EmployeeComponent } from './employee/employee.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
@@ -15,6 +14,8 @@ import { UpdateComponent } from './update/update.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { Home1Component } from './home1/home1.component';
+import { FormguardGuard } from './guards/formguard.guard';
 
 
 @NgModule({
@@ -22,12 +23,12 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     AppComponent,
     HomeComponent,
     EmployeeComponent,
-    NavbarComponent,
     PostComponent,
     UpdateComponent,
     LoginComponent,
     SignupComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    Home1Component
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [FormguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

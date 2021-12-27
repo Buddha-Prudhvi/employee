@@ -10,6 +10,11 @@ import { EmpSerService } from '../shared/emp-ser.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
+   ELEMENT_DATA:any = [
+    
+  ];
+  displayedColumns: string[] = ['name', 'position', 'office', 'salary','edit','delete'];
+  dataSource = this.ELEMENT_DATA;
   employeeform: any = FormGroup;
 
   name: string = "";
@@ -49,6 +54,7 @@ export class EmployeeComponent implements OnInit {
     obj.office = temp.office;
     obj.salary = temp.salary; 
     this.ser.insert(obj).subscribe((data) => {
+      this.getData()
       console.log(data)
     })
   }
@@ -65,9 +71,16 @@ export class EmployeeComponent implements OnInit {
 
   
   ngOnInit() {
-    this.ser.getAllusers().subscribe((res:any) => {
-      this.users = res.result;
-      console.log("data", res.result);
+   
+    let get_value = localStorage.getItem('user')
+
+    this.getData();
+  }
+
+  getData(){
+    this.ser.getAllusers().subscribe((data) => {
+      this.ELEMENT_DATA = data;
+      this.dataSource = this.ELEMENT_DATA.result
     })
   }
   
@@ -81,6 +94,8 @@ export class EmployeeComponent implements OnInit {
       this.employeeform.patchValue({office:this.data.office});
       this.employeeform.patchValue({salary:this.data.salary});
     })
-    this.route.navigate(['form/' + id])
+  }
+  delete(id:any){
+    this.ser.userdelete(id).subscribe((data:any)=>{(console.log(data))})
   }
 }

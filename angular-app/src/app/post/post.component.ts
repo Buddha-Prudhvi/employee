@@ -10,12 +10,16 @@ import { EmpSerService } from '../shared/emp-ser.service';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-x:any=[];
-  constructor(private http:HttpClient, private ser :EmpSerService) { }
+   ELEMENT_DATA:any = [];
+  displayedColumns: string[] = ['name', 'position', 'office', 'salary'];
+  dataSource:any;
+
+  constructor( private ser :EmpSerService) { }
 
   ngOnInit(){
     this.ser.getAllusers().subscribe(data=>{
-      this.x = data;
+      this.ELEMENT_DATA = data;
+      this.dataSource = this.ELEMENT_DATA.result
     })
   }
 }
